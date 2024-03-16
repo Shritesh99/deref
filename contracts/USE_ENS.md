@@ -1,0 +1,5 @@
+1. deploy contract (sepolia)
+2. go to https://sepolia.etherscan.io/address/0x0635513f179D50A207757E05759CbD106d7dFcE8#writeContract and call "setApproveForAll" with the address of the deployed contract and "true"
+3.  go to https://sepolia.etherscan.io/address/0x8FADE66B79cC9f707aB26799354482EB93a5B7dD#writeContract and repeat the "setApproveForAll"
+4. call "setSubnodeRecord" with desired params. "parentNode" is the namehash (can get here https://ethtools.com/ens-namehash-labelhash-node-generator or with viem https://viem.sh/docs/ens/utilities/namehash#namehash) of the parent. Owner is the owner of the ENS. Resolver is 0x8FADE66B79cC9f707aB26799354482EB93a5B7dD. ttl, fuses and expire are 0. Label is what you want.
+5. get the namehash of this new subdomain and set the address or the text you wish
