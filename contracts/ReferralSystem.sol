@@ -22,6 +22,8 @@ contract ReferralSystem {
     // Define ERC20 token contract address
     address public tokenAddress;
 
+    UltraVerifier ultraVerifier;
+
     // referral
     mapping(uint256 => uint256[]) public referrals;
     mapping(uint256 => mapping(uint256 => bool)) refered;
@@ -35,11 +37,13 @@ contract ReferralSystem {
     // Constructor to set the ERC20 token address and ZK-SNARK verifier address
     constructor(
         address _tokenAddress,
+        address zkVerifier,
         IWorldID _worldId,
         string memory _appId,
         string memory _actionId
     ) {
         tokenAddress = _tokenAddress;
+        ultraVerifier = UltraVerifier(zkVerifier);
         worldId = _worldId;
         externalNullifier = abi
             .encodePacked(abi.encodePacked(_appId).hashToField(), _actionId)
@@ -76,14 +80,14 @@ contract ReferralSystem {
     }
 
     function refer(
-        bytes32 signal, // referrer
+        uint256 signal, // referrer
         uint256 root,
         uint256 nullifierHash,
         uint256[8] calldata worldCoinProof,
         bytes32[] calldata _publicInputs,
         bytes calldata _proof
     ) external {
-        require(UltraVerifier.verify(proof, _publicInputs), "Referal not valid");
+        require(ultraVerifier.verify(_proof, _publicInputs), "Referal not valid");
 
         uint256 referrer = signal;
 
