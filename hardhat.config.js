@@ -3,14 +3,13 @@ require("@nomicfoundation/hardhat-chai-matchers");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-	solidity: {
-		version: "0.8.20",
-		settings: {
-			optimizer: {
-				enabled: false,
-				runs: 100000,
-			},
-			viaIR: true,
-		},
-	},
+  solidity: {
+    version: "0.8.20",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 2000,
+      },
+    },
+  },
 };
