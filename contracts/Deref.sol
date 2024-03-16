@@ -5,7 +5,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 // Import ZK-SNARK verifier contract interface
-import "./ZkProofVerifier.sol";
+// import "./ZkProofVerifier.sol";
 
 contract ReferralSystem {
     // Define ERC20 token contract address
@@ -49,7 +49,10 @@ contract ReferralSystem {
     //TODO: zk based proof here
     // Function to refer new users using a referral code
     function referWithCode(bytes32 _referralCode) external {
-        require(referralCodes[msg.sender] == _referralCode, "Invalid referral code");
+        require(
+            referralCodes[msg.sender] == _referralCode,
+            "Invalid referral code"
+        );
         address referrer = address(bytes20(_referralCode));
         referrals[referrer].push(msg.sender);
         emit Referral(referrer, msg.sender);
@@ -80,7 +83,9 @@ contract ReferralSystem {
     }
 
     // Function to retrieve total rewards earned by a referrer
-    function getTotalRewards(address _referrer) external view returns (uint256) {
+    function getTotalRewards(
+        address _referrer
+    ) external view returns (uint256) {
         return rewards[_referrer];
     }
 }
