@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 import {ByteHasher} from "./WorldIDHelpers/ByteHasher.sol";
 import {IWorldID} from "./WorldIDHelpers/IWorldID.sol";
+import {UltraVerifier} from "./plonk_vk.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract ReferralSystem {
@@ -75,11 +76,15 @@ contract ReferralSystem {
     }
 
     function refer(
-        uint256 signal, // referrer
+        bytes32 signal, // referrer
         uint256 root,
         uint256 nullifierHash,
-        uint256[8] calldata proof
+        uint256[8] calldata worldCoinProof,
+        bytes32[] calldata _publicInputs,
+        bytes calldata _proof
     ) external {
+        require(UltraVerifier.verify(proof, _publicInputs), "Referal not valid");
+
         uint256 referrer = signal;
 
         require(refered[nullifierHash][referrer] == false, "refered already");
@@ -89,7 +94,7 @@ contract ReferralSystem {
             abi.encodePacked(signal).hashToField(),
             nullifierHash,
             externalNullifier,
-            proof
+            worldCoinProof
         );
 
         refered[nullifierHash][referrer] = true;
