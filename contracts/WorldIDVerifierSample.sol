@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import {ByteHasher} from "./WorldIDHelpers/ByteHasher.sol";
 import {IWorldID} from "./WorldIDHelpers/IWorldID.sol";
 
-contract WorldIDVerifier {
+contract WorldIDVerifierSample {
     using ByteHasher for bytes;
 
     /// @notice Thrown when attempting to reuse a nullifier

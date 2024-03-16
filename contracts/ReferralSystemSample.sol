@@ -12,7 +12,7 @@ contract ReferralSystemSample {
     address public tokenAddress;
 
     mapping(address => address[]) public referrals;
-    mapping(address => mapping(address => bool)) isRefered;
+    mapping(address => mapping(address => bool)) refered;
 
     // Mapping to track rewards earned by referrers
     mapping(address => uint256) public rewards;
@@ -32,9 +32,9 @@ contract ReferralSystemSample {
     }
 
     function refer(address referrer) external {
-        require(isRefered[msg.sender][referrer] == false, "refered already");
+        require(refered[msg.sender][referrer] == false, "refered already");
 
-        isRefered[msg.sender][referrer] = true;
+        refered[msg.sender][referrer] = true;
 
         // first reward
         _distributeTo(referrer, REWARD_AMOUNT);
