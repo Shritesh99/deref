@@ -46,8 +46,12 @@ contract WorldIDVerifier {
         uint256 nullifierHash,
         uint256[8] calldata proof
     ) public {
+        uint256 nullifier = uint256(
+            keccak256(abi.encodePacked(nullifierHash, signal))
+        );
+
         // First, we make sure this person hasn't done this before
-        if (nullifierHashes[nullifierHash]) revert InvalidNullifier();
+        if (nullifierHashes[nullifier]) revert InvalidNullifier();
 
         // We now verify the provided proof is valid and the user is verified by World ID
         worldId.verifyProof(
@@ -60,7 +64,7 @@ contract WorldIDVerifier {
         );
 
         // We now record the user has done this, so they can't do it again (proof of uniqueness)
-        nullifierHashes[nullifierHash] = true;
+        nullifierHashes[nullifier] = true;
 
         // Finally, execute your logic here, for example issue a token, NFT, etc...
         // Make sure to emit some kind of event afterwards!
