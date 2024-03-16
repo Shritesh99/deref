@@ -1,5 +1,5 @@
 use dep::std;
-fn main(x:[u8; 8], result: [u8; 32]) {
+fn main(x:[u8; 8], result: pub [u8; 32]) {
     let digest = std::hash::keccak256(x, 8);
     assert(digest == result);
 }
