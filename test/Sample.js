@@ -60,17 +60,22 @@ describe("Sample", () => {
       const alice = signers[0];
       const bob = signers[1];
       const charlie = signers[2];
+      const david = signers[3];
 
-      // alice -> bob
       // bob -> alice
       await expect(
-        referralSystem.connect(alice).refer(bob)
+        referralSystem.connect(bob).refer(alice)
       ).to.changeTokenBalances(erc20, [alice, bob], [100, 100]);
 
       // charlie -> bob
       await expect(
         referralSystem.connect(charlie).refer(bob)
       ).to.changeTokenBalances(erc20, [alice, bob, charlie], [30, 100, 70]);
+
+      // david -> charlie
+      await expect(
+        referralSystem.connect(david).refer(charlie)
+      ).to.changeTokenBalances(erc20, [bob, charlie, david], [30, 100, 70]);
     });
   });
 });

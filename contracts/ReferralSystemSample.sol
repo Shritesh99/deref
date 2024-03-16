@@ -32,12 +32,13 @@ contract ReferralSystemSample {
     }
 
     function refer(address referrer) external {
-        require(isRefered[referrer][msg.sender] == false, "refered already");
+        require(isRefered[msg.sender][referrer] == false, "refered already");
 
-        isRefered[referrer][msg.sender] = true;
+        isRefered[msg.sender][referrer] = true;
 
         // first reward
         _distributeTo(referrer, REWARD_AMOUNT);
+
         // second reward
         bool isSuccess = _distributeSecondReward(
             referrer,
@@ -51,7 +52,7 @@ contract ReferralSystemSample {
             _distributeTo(msg.sender, REWARD_AMOUNT); // +100 to myself
         }
 
-        referrals[referrer].push(msg.sender);
+        referrals[msg.sender].push(referrer);
     }
 
     function _distributeTo(address target, uint256 amount) internal {
