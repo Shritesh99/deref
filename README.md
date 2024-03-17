@@ -1,8 +1,6 @@
 # DeRef 
 
-DeRef is a decentralized referral system built on the Base testnet that utilizes zero-knowledge proofs to enable private and secure referrals. 
-The system allows users to invite referrers, and track referral rewards while maintaining the privacy of both the referrer and the referred party.
-
+🤐 DeRefer is a decentralized referral system that leverages royalties to onboard users and engage communities. Our platform enables seamless growth through incentivized referrals while ensuring data privacy through zero-knowledge proofs. DeRefer empowers projects to harness viral adoption without compromising sensitive information.
 
 ## PROJECT DESCRIPTION: User Journey
 
