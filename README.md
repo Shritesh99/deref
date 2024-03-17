@@ -47,7 +47,7 @@ This creates a self-perpetuating referral system that incentivizes user growth a
 The project consists of three main components: 
 
 ### WorldID:
-We integrated WorldCoin SDK to seemlesly verify users onboarding to the platform. They provided the infrastructure to uniquely store user into the smart contracts instead of generating the user model from scratch.
+We integrated [WorldCoin SDK](https://worldcoin.org/blog/announcements/introducing-world-id-and-sdk) to seemlesly verify users onboarding to the platform. They provided the infrastructure to uniquely store user into the smart contracts instead of generating the user model from scratch.
 
 ### Zero Knowledge Proof using Noir from Aztec Protocol
 We generated the ZK-based validity proofs using [Noir](https://noir-lang.org/) language built by Aztec in Rust. We are verifying the hash leveraging the keccak256 algorithm by generating proofs on chain and verifying them on chain.
