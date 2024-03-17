@@ -35,11 +35,11 @@ The user copies the referral link provided by their referee
 The user can share this referral link with a maximum of 3 other users
 
 ### Step 8: Automatic Referral Rewards
-When a referred user joins the platform using the shared referral link, they automatically receive a payment in the form of a token directly in their connected wallet. This royalty system incentivizes users to join the platform and encourages them to refer others
+When a referred user joins the platform using the shared referral link, they automatically receive a payment in the form of a [Fan token](https://docs.chiliz.com/learn/about-fan-tokens) directly in their connected wallet. This royalty system incentivizes users to join the platform and encourages them to refer others
 
 ### Step 9: Referral Chain Perpetuation
 Each newly onboarded user has the potential to refer a maximum of 3 friends, continuing the referral chain
-As new users join through referral links, they also receive the token reward in their wallet
+As new users join through referral links, they also receive the [Fan token](https://docs.chiliz.com/learn/about-fan-tokens) reward in their wallet
 This creates a self-perpetuating referral system that incentivizes user growth and engagement
 
 ## How it's Made
