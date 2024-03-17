@@ -44,6 +44,13 @@ This creates a self-perpetuating referral system that incentivizes user growth a
 
 ## How it's Made
 
+The project consists of three main components: 
+
+### WorldID:
+
+- Integrate Sign in with World ID or Incognito Actions.
+- World ID must be fully integrated. Proof validation is required and needs to occur in a web backend or smart contract.
+
 ### 1. Referral Invitation:
    - Referrers can invite others to join the referral campaign by generating unique referral codes using a zero-knowledge proof system or an ENS domain.
    - If users wish to protect their identity, the referral codes are generated using ZK-proofs, a cryptographic method that preserves the privacy of both the referrer and the referred party. If the users want to keep the referral public, they can use the ENS domain.
