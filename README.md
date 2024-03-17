@@ -52,6 +52,9 @@ We integrated WorldCoin SDK to seemlesly verify users onboarding to the platform
 ### Zero Knowledge Proof using Noir from Aztec Protocol
 We generated the ZK-based validity proofs using Noir language built by Aztec in Rust. We are verifying the hash leveraging the keccak256 algorithm by generating proofs on chain and verifying them on chain.
 
+### ENS subdomains
+We have integrated the ENS subdomains https://docs.ens.domains/web/subdomains allowing users to claim custom ENS domains for their referral links, this way providing users with a personalized referral experience. Instead of sharing generic referral links, users can have branded domains that reflect their identity, making it easier to promote the platform within their networks.
+
 ### 1. Referral Invitation:
    - Referrers can invite others to join the referral campaign by generating unique referral codes using a zero-knowledge proof system or an ENS domain.
    - If users wish to protect their identity, the referral codes are generated using ZK-proofs, a cryptographic method that preserves the privacy of both the referrer and the referred party. If the users want to keep the referral public, they can use the ENS domain.
